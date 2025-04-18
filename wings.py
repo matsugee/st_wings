@@ -117,7 +117,7 @@ def get_list_now():
     conn.close()
     return df
 
-@st.cache_resource
+#@st.cache_resource
 def get_action_row( event_id ):
     conn = get_connection()
     #query = "SELECT id,member_name,status,comment FROM action WHERE event_id={}".format(event_id)
@@ -191,8 +191,8 @@ def disp_action(dic_row, df):
 	if st.button("変更を保存"):
 		for i,id in enumerate(ids,0):
 			update_action( id, status[i], comment[i] )
-		st.cache_resource.clear()
-		st.rerun()
+		#st.cache_resource.clear()
+		#st.rerun()
 
 def del_database():
 	conn = get_connection()
